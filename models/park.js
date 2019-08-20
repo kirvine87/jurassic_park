@@ -13,10 +13,15 @@ Park.prototype.removeFromCollection = function(dinosaur) {
   this.collection.splice(index,1)
 }
 
-// Park.prototype.mostPopularDino = function() {
-//   result = Math.max.apply(Math, array.map(function(o) { return o.guestsAttractedPerDay; }));
-//   return result;
-// }
+Park.prototype.mostPopularDino = function() {
+  let mostPopular = this.collection[0];
+  for(let dinosaur of this.collection){
+    if(dinosaur.guestsAttractedPerDay > mostPopular.guestsAttractedPerDay){
+      mostPopular = dinosaur;
+    }
+  }
+  return mostPopular;
+}
 
 Park.prototype.findBySpecies = function(species) {
   let foundDinosaur = [];
