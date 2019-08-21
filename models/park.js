@@ -51,19 +51,11 @@ Park.prototype.visitsPerDay = function() {
 }
 
 Park.prototype.visitsPerYear = function() {
-  let total = 0;
-  for (let dinosaur of this.collection) {
-    total += dinosaur.guestsAttractedPerDay;
-  }
-  return total * 365;
+  return this.visitsPerDay() * 365;
 }
 
 Park.prototype.revenuePerYear = function() {
-  let total = 0;
-  for (let dinosaur of this.collection) {
-    total += dinosaur.guestsAttractedPerDay;
-  }
-  return total * 365 * this.ticketp;
+  return this.visitsPerYear() * this.ticketp;
 }
 
 module.exports = Park;
